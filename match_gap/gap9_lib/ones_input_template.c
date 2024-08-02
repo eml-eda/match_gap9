@@ -40,12 +40,12 @@ int main(int argc, char** argv) {
   int32_t status = 0;
   printf("\n{");
   printf("\"kernel_cycles\":[0");
-  start_g_perf_counter();
+  //start_g_perf_counter();
   status = tvmgen_default_run(&inputs, &outputs);
-  stop_g_perf_counter();
-  int32_t cycles=get_acc_perf_counter();
+  //stop_g_perf_counter();
+  //int32_t cycles=get_acc_perf_counter();
   int errors=0;
-  printf("],\"cycles\":%d,",cycles);
+  //printf("],\"cycles\":%d,",cycles);
   % if compare_with_correct:
   printf("\"errors\":[");
   for(int k=0;k<output_size;k++){

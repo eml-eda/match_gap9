@@ -204,7 +204,6 @@ if __name__=="__main__":
         type=str,
         help="Provide the absolute path to the GAP SDK, defaults to /home/gap_sdk/private"
     )
-
     args = parser.parse_args()
     input_type=args.input_type
     mod=None

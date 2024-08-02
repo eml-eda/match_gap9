@@ -4,6 +4,7 @@ CORE ?= 8
 platform=gvsoc
 BUILD_DIR := .
 DORY_DIR := dory
+SPARSE_DIR := sparse
 # Include paths
 STANDALONE_CRT_PATH := $(abspath $(BUILD_DIR))/runtime
 CODEGEN_PATH := $(abspath $(BUILD_DIR))/codegen
@@ -19,6 +20,9 @@ DORY_SRCS = $(wildcard $(abspath $(DORY_DIR))/src/*.c)
 DORY_OBJS = $(subst .c,.o,$(DORY_SRCS))
 DORY_INC_PATH = $(abspath $(DORY_DIR))/include
 
+SPARSE_SRCS = $(wildcard $(abspath $(SPARSE_DIR))/src/*.c)
+SPARSE_OBJS = $(subst .c,.o,$(SPARSE_SRCS))
+SPARSE_INC_PATH = $(abspath $(SPARSE_DIR))/include
 #def zigzag
 
 MATCH_SOURCES = $(wildcard src/*.c)
@@ -28,10 +32,11 @@ INC_PATHS =  -I${STANDALONE_CRT_PATH}/include \
 			 -I${CODEGEN_PATH}/host/include \
 			 -I ./include/ \
 			 -I${DORY_INC_PATH}\
+			 -I${SPARSE_INC_PATH}\
 
 # Defining the source files for pulp-runtime
 APP = main
-APP_SRCS = $(STANDALONE_CRT_SRCS) $(CODEGEN_SRCS) $(DORY_SRCS)
+APP_SRCS = $(STANDALONE_CRT_SRCS) $(CODEGEN_SRCS) $(DORY_SRCS) $(SPARSE_SRCS)
 APP_SRCS += $(MATCH_SOURCES)
 PULP_INC_PATHS += -DSDK
 

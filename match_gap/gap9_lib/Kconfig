@@ -1,0 +1,13 @@
+menu "MATCH menu"
+	choice APP_MODE
+		default DEMO
+
+		config DEMO
+		select LIB_SFU
+		select LIB_SFU_V2
+		select DRIVER_I2S
+
+	endchoice
+endmenu
+
+source "$(GAP_SDK_HOME)/utils/kconfig/Kconfig"
